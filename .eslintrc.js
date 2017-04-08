@@ -15,6 +15,10 @@ module.exports = {
   'rules': {
     'global-require': 0,
     'import/no-unresolved': 0,
+    'comma-dangle': [
+      1,
+      "always-multiline"
+    ],
     'no-param-reassign': 0,
     'semi': [ 1, 'never' ],
     'no-shadow': 0,
