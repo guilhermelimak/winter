@@ -1,10 +1,12 @@
 <template>
-<div>
-  <tweet v-for="tweet in tweets" />
+<div class="col-xs-12 col-md-4">
+  <tweet v-for="(tweet, i) in tweets" :tweet="tweet" />
 </div>
 </template>
 
 <script>
+import Tweet from '~/components/Tweet'
+
 export default {
   props: {
     tweets: {
@@ -12,8 +14,11 @@ export default {
       type: Array,
     },
   },
+  components: {
+    Tweet,
+  },
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 </style>
