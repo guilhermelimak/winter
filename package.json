@@ -107,8 +107,10 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
+    "dotenv-webpack": "^1.4.3",
     "node-sass": "^4.5.2",
     "ramda": "^0.23.0",
-    "sass-loader": "^6.0.3"
+    "sass-loader": "^6.0.3",
+    "twitter": "^1.7.0"
   }
 }

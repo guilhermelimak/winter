@@ -1,11 +1,10 @@
-
-
 process.env.BABEL_ENV = 'renderer'
 
 const path = require('path')
 const pkg = require('./app/package.json')
 const settings = require('./config.js')
 const webpack = require('webpack')
+const Dotenv = require('dotenv-webpack')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -79,6 +78,7 @@ const rendererConfig = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new ExtractTextPlugin('styles.css'),
     new HtmlWebpackPlugin({
       filename: 'index.html',
