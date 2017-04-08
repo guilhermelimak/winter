@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TweetsList from '../components/TweetsList'
+import TweetsList from '~/components/TweetsList'
 
 export default {
   components: {

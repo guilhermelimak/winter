@@ -1,4 +1,4 @@
-'use strict'
+
 
 process.env.BABEL_ENV = 'renderer'
 
@@ -10,11 +10,11 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-let rendererConfig = {
+const rendererConfig = {
   devtool: '#eval-source-map',
   devServer: { overlay: true },
   entry: {
-    renderer: path.join(__dirname, 'app/src/renderer/main.js')
+    renderer: path.join(__dirname, 'app/src/renderer/main.js'),
   },
   externals: Object.keys(pkg.dependencies || {}),
   module: {
@@ -23,26 +23,26 @@ let rendererConfig = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
-        })
+          use: 'css-loader',
+        }),
       },
       {
         test: /\.html$/,
-        use: 'vue-html-loader'
+        use: 'vue-html-loader',
       },
       {
         test: /\.js$/,
         use: 'babel-loader',
-        include: [ path.resolve(__dirname, 'app/src/renderer') ],
-        exclude: /node_modules/
+        include: [path.resolve(__dirname, 'app/src/renderer')],
+        exclude: /node_modules/,
       },
       {
         test: /\.json$/,
-        use: 'json-loader'
+        use: 'json-loader',
       },
       {
         test: /\.node$/,
-        use: 'node-loader'
+        use: 'node-loader',
       },
       {
         test: /\.vue$/,
@@ -51,10 +51,10 @@ let rendererConfig = {
           options: {
             loaders: {
               sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader'
-            }
-          }
-        }
+              scss: 'vue-style-loader!css-loader!sass-loader',
+            },
+          },
+        },
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -62,9 +62,9 @@ let rendererConfig = {
           loader: 'url-loader',
           query: {
             limit: 10000,
-            name: 'imgs/[name].[ext]'
-          }
-        }
+            name: 'imgs/[name].[ext]',
+          },
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
@@ -72,11 +72,11 @@ let rendererConfig = {
           loader: 'url-loader',
           query: {
             limit: 10000,
-            name: 'fonts/[name].[ext]'
-          }
-        }
-      }
-    ]
+            name: 'fonts/[name].[ext]',
+          },
+        },
+      },
+    ],
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
@@ -87,25 +87,25 @@ let rendererConfig = {
         ? path.resolve(__dirname, 'app/node_modules')
         : false,
     }),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.join(__dirname, 'app/dist')
+    path: path.join(__dirname, 'app/dist'),
   },
   resolve: {
     alias: {
-      'components': path.join(__dirname, 'app/src/renderer/components'),
-      'renderer': path.join(__dirname, 'app/src/renderer')
+      components: path.join(__dirname, 'app/src/renderer/components'),
+      '~': path.join(__dirname, 'app/src/renderer'),
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node'],
     modules: [
       path.join(__dirname, 'app/node_modules'),
-      path.join(__dirname, 'node_modules')
-    ]
+      path.join(__dirname, 'node_modules'),
+    ],
   },
-  target: 'electron-renderer'
+  target: 'electron-renderer',
 }
 
 if (process.env.NODE_ENV !== 'production') {
@@ -121,9 +121,9 @@ if (process.env.NODE_ENV !== 'production') {
         use: {
           loader: 'eslint-loader',
           options: {
-            formatter: require('eslint-friendly-formatter')
-          }
-        }
+            formatter: require('eslint-friendly-formatter'),
+          },
+        },
       }
     )
   }
@@ -137,15 +137,15 @@ if (process.env.NODE_ENV === 'production') {
 
   rendererConfig.plugins.push(
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': '"production"'
+      'process.env.NODE_ENV': '"production"',
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
+        warnings: false,
+      },
     })
   )
 }

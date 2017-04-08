@@ -2,6 +2,12 @@
 
 > A cool twitter client
 
+
+## Dev tips
+
+All imports using '~' are relative to the app/src/renderer folder. Use it everywhere to avoid relative imports.
+
+
 ## Build Setup
 
 ``` bash

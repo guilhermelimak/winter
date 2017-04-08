@@ -1,8 +1,10 @@
+import Home from '~/containers/Home'
+
 export default [
   {
     path: '/',
-    name: 'landing-page',
-    component: require('components/LandingPageView'),
+    name: 'home',
+    component: Home,
   },
   {
     path: '*',
