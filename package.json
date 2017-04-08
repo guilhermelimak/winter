@@ -108,6 +108,7 @@
     "webpack-merge": "^2.4.0"
   },
   "dependencies": {
+    "ajv": "^5.0.1-beta.3",
     "bootstrap-sass": "^3.3.7",
     "ramda": "^0.23.0",
     "twitter": "^1.7.0"
