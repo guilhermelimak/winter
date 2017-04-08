@@ -110,7 +110,9 @@
   "dependencies": {
     "ajv": "^5.0.1-beta.3",
     "bootstrap-sass": "^3.3.7",
+    "camelize": "^1.0.0",
     "fecha": "^2.3.0",
+    "node-twitter-api": "^1.8.0",
     "ramda": "^0.23.0",
     "twitter": "^1.7.0"
   }
