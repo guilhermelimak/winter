@@ -1,0 +1,14 @@
+$gray-base: #000 !default;
+$gray-darker: lighten($gray-base, 13.5%) !default;
+$gray-dark: lighten($gray-base, 20%) !default;
+$gray: lighten($gray-base, 33.5%) !default;
+$gray-light: lighten($gray-base, 46.7%) !default;
+$gray-lighter: lighten($gray-base, 93.5%) !default;
+
+$brand-primary: #3A5A75 !default;
+$brand-success: #BBC682 !default;
+$brand-info: #CCD2B6 !default;
+$brand-warning: #F2D691 !default;
+$brand-danger: #AC5757 !default;
+
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
