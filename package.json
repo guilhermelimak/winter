@@ -93,6 +93,8 @@
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.1",
     "mocha": "^3.0.2",
+    "node-sass": "^4.5.2",
+    "sass-loader": "^6.0.3",
     "style-loader": "^0.13.1",
     "tree-kill": "^1.1.0",
     "url-loader": "^0.5.7",
@@ -107,10 +109,7 @@
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "dotenv-webpack": "^1.4.3",
-    "node-sass": "^4.5.2",
     "ramda": "^0.23.0",
-    "sass-loader": "^6.0.3",
     "twitter": "^1.7.0"
   }
 }

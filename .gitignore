@@ -13,3 +13,5 @@ thumbs.db
 !.gitkeep
 
 \.env
+
+app/src/renderer/twitter-credentials\.js
