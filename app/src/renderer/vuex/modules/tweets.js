@@ -7,12 +7,14 @@ export default {
     // ...Custom lists should also be here
   },
   actions: {
-    updateTweetsList({ commit }, listName, tweets) {
-      commit(types.UPDATE_TWEETS_LIST, listName, tweets)
+    // getTweetsList({}) {}
+    // postTweet({}) {}
+    updateTweetsList({ commit }, payload) {
+      commit(types.UPDATE_TWEETS_LIST, payload)
     },
   },
   mutations: {
-    [this.UPDATE_TWEETS_LIST](state, listName, tweets) {
+    [this.UPDATE_TWEETS_LIST](state, { listName, tweets }) {
       state[listName] = [...state[listName], ...tweets]
     },
   },
