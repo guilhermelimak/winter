@@ -16,6 +16,7 @@ export default {
 @import url(https://fonts.googleapis.com/css?family=Lato:300);
 @import './styles/app';
 
+#app,
 html,
 body {
   height: 100%;
