@@ -24,7 +24,7 @@
       <i class="glyphicon glyphicon-share-alt"></i>
     </span>
     <span class="retweet__button pull-right">
-      <i class="glyphicon glyphicon-retweet" @click="retweetStatus(tweet.id)"></i>
+      <i class="glyphicon glyphicon-retweet" @click="retweetStatus(tweet.id_str)"></i>
     </span>
     <span class="favorite__button pull-right">
       <i

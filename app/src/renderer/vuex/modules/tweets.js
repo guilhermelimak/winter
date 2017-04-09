@@ -33,7 +33,14 @@ export default {
         commit(types.UPDATE_TWITTER_CLIENT, { client })
       })
     },
-    postTweet({ rootState, state }) {
+    retweetStatus({ state, commit }, id) {
+      console.log(id)
+      state.client.post(`statuses/retweet/${id}`, {}, (err, tweet) => {
+        if (err) console.error(err)
+        console.log(tweet)  // Tweet body.
+      })
+    },
+    postStatus({ rootState, state }) {
       const status = rootState.ui.newTweetModal.tweetDraft
 
       state.client.post('statuses/update', { status }, (err, tweet) => {
