@@ -1,6 +1,16 @@
 import initTwitter from '~/services/twitter'
-
+import R from 'ramda'
 import * as types from '~/vuex/mutation-types'
+
+const logError = (resolve, reject) => (err, tweet) => {
+  if (err) {
+    console.error(err)
+    reject(err)
+    return
+  }
+
+  resolve(tweet)
+}
 
 export default {
   state: {
@@ -33,20 +43,33 @@ export default {
         commit(types.UPDATE_TWITTER_CLIENT, { client })
       })
     },
+    updateTweet({ commit }, payload) {
+      commit(types.UPDATE_TWEET, payload)
+    },
+    favoriteStatus({ state, commit }, id) {
+      return new Promise((resolve, reject) => {
+        state.client.post('favorites/create/', { id }, logError(resolve, reject))
+      })
+    },
+    unfavoriteStatus({ state, commit }, id) {
+      return new Promise((resolve, reject) => {
+        state.client.post('favorites/destroy/', { id }, logError(resolve, reject))
+      })
+    },
     retweetStatus({ state, commit }, id) {
-      console.log(id)
-      state.client.post(`statuses/retweet/${id}`, {}, (err, tweet) => {
-        if (err) console.error(err)
-        console.log(tweet)  // Tweet body.
+      return new Promise((resolve, reject) => {
+        state.client.post(`statuses/retweet/${id}`, {}, logError(resolve, reject))
+      })
+    },
+    unretweetStatus({ state, commit }, id) {
+      return new Promise((resolve, reject) => {
+        state.client.post(`statuses/unretweet/${id}`, {}, logError(resolve, reject))
       })
     },
     postStatus({ rootState, state }) {
       const status = rootState.ui.newTweetModal.tweetDraft
 
-      state.client.post('statuses/update', { status }, (err, tweet) => {
-        if (err) console.error(err)
-        console.log(tweet)  // Tweet body.
-      })
+      state.client.post('statuses/update', { status }, logError)
     },
     updateTweetsList({ commit }, payload) {
       commit(types.UPDATE_TWEETS_LIST, payload)
@@ -71,6 +94,12 @@ export default {
     },
     [types.UPDATE_TWEETS_LIST](state, { listName, tweets }) {
       state[listName] = [...tweets, ...state[listName]]
+    },
+    [types.UPDATE_TWEET](state, { listName, tweet }) {
+      const list = listName.toLowerCase()
+
+      const index = R.findIndex(R.propEq('id_str', tweet.id_str), state[list])
+      state[list].splice(index, 1, tweet)
     },
   },
 }

@@ -24,12 +24,21 @@
       <i class="glyphicon glyphicon-share-alt"></i>
     </span>
     <span class="retweet__button pull-right">
-      <i class="glyphicon glyphicon-retweet" @click="retweetStatus(tweet.id_str)"></i>
+      <i
+        :class="{ 'active': tweet.retweeted }"
+        class="glyphicon glyphicon-retweet"
+        @click="retweet">
+      </i>
     </span>
     <span class="favorite__button pull-right">
       <i
         class="glyphicon"
-        :class="{ 'glyphicon-star-empty': !tweet.favorited,'glyphicon-star': tweet.favorited }">
+        @click="favorite"
+        :class="{
+          'glyphicon-star-empty': !tweet.favorited,
+          'glyphicon-star': tweet.favorited,
+          'active': tweet.favorited
+        }">
       </i>
     </span>
   </div>
@@ -55,13 +64,48 @@ export default {
     },
   },
   methods: {
+    retweet() {
+      const { listName, tweet } = this
+
+      if (this.tweet.retweeted) {
+        this
+          .unretweetStatus(this.tweet.id_str)
+          .then(() => this.updateTweet({ listName, tweet: { ...tweet, retweeted: false } }))
+      } else {
+        this
+          .retweetStatus(this.tweet.id_str)
+          .then(() => this.updateTweet({ listName, tweet: { ...tweet, retweeted: true } }))
+      }
+    },
+    favorite() {
+      const { listName, tweet } = this
+
+      if (this.tweet.favorited) {
+        this
+          .unfavoriteStatus(this.tweet.id_str)
+          .then(() => this.updateTweet({ listName, tweet: { ...tweet, favorited: false } }))
+      } else {
+        this
+          .favoriteStatus(this.tweet.id_str)
+          .then(() => this.updateTweet({ listName, tweet: { ...tweet, favorited: true } }))
+      }
+    },
     ...mapActions([
+      'updateTweet',
+      'favoriteStatus',
+      'unfavoriteStatus',
+      'unretweetStatus',
       'retweetStatus',
     ]),
   },
   props: {
     tweet: {
       type: Object,
+      required: true,
+    },
+    /* Used to find the tweet easily in state */
+    listName: {
+      type: String,
       required: true,
     },
   },
@@ -95,8 +139,24 @@ export default {
     justify-content: flex-end;
     margin-top: $grid-gutter-width / 5;
 
+    .retweet__button {
+      i.active {
+        color: $brand-success;
+      }
+    }
+
+    .favorite__button {
+      i.active {
+        color: $brand-warning;
+      }
+    }
+
     span {
       margin-right: $grid-gutter-width / 2;
+
+      i {
+        cursor: pointer;
+      }
     }
   }
 }

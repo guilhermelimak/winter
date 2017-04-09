@@ -1,7 +1,7 @@
 <template>
 <div class="login__wrapper">
   <div class="login__container">
-    <div v-if="redirected">
+    <div v-if="redirected" class="text-center">
       <div class="form-group">
         <input
           v-model="pin"

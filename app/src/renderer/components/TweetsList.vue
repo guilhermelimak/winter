@@ -5,7 +5,10 @@
         <h2>{{ listName }}</h2>
     </div>
     <div class="col-xs-12">
-      <tweet v-for="(tweet, i) in tweets" :tweet="tweet" />
+      <tweet
+        :list-name="listName"
+        v-for="(tweet, i) in tweets"
+        :tweet="tweet" />
     </div>
   </div>
 </div>
