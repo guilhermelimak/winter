@@ -113,6 +113,7 @@
     "camelize": "^1.0.0",
     "element-ui": "^1.2.8",
     "fecha": "^2.3.0",
+    "linkifyjs": "^2.1.4",
     "node-twitter-api": "^1.8.0",
     "ramda": "^0.23.0",
     "twitter": "^1.7.0",

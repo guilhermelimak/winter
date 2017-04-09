@@ -14,8 +14,7 @@
        {{ date }}
       </span>
 
-      <div class="content">
-        {{ tweet.text }}
+      <div class="content" v-html="content">
       </div>
     </div>
   </div>
@@ -25,7 +24,7 @@
       <i class="glyphicon glyphicon-share-alt"></i>
     </span>
     <span class="retweet__button pull-right">
-      <i class="glyphicon glyphicon-retweet"></i>
+      <i class="glyphicon glyphicon-retweet" @click="retweetStatus(tweet.id)"></i>
     </span>
     <span class="favorite__button pull-right">
       <i
@@ -39,15 +38,26 @@
 
 <script>
 import fecha from 'fecha'
+import { mapActions } from 'vuex'
+import 'linkifyjs'
+import linkifyHtml from 'linkifyjs/html'
 
 export default {
   computed: {
+    content() {
+      return linkifyHtml(this.tweet.text)
+    },
     date() {
       return fecha.format(new Date(this.tweet.created_at), 'DD/MM HH:mm')
     },
     author() {
       return this.tweet.user
     },
+  },
+  methods: {
+    ...mapActions([
+      'retweetStatus',
+    ]),
   },
   props: {
     tweet: {
