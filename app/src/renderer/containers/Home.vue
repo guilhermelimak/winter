@@ -1,12 +1,16 @@
 <template>
 <div class="content__wrapper">
-  <tweets-list :tweets="tweets.home"></tweets-list>
-  <tweets-list :tweets="tweets.mentions"></tweets-list>
+  <navbar />
+  <tweets-list list-name="Home" :tweets="tweets.home" />
+  <tweets-list list-name="Mentions":tweets="tweets.mentions" />
+  <new-tweet-modal />
 </div>
 </template>
 
 <script>
 import TweetsList from '~/components/TweetsList'
+import NewTweetModal from '~/components/NewTweetModal'
+import Navbar from '~/components/Navbar'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
@@ -24,7 +28,9 @@ export default {
     this.listenStream()
   },
   components: {
+    Navbar,
     TweetsList,
+    NewTweetModal,
   },
 }
 </script>

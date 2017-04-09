@@ -1,5 +1,3 @@
-
-
 import { app, BrowserWindow } from 'electron'
 
 let mainWindow
