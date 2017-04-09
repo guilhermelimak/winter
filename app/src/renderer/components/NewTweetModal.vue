@@ -1,15 +1,17 @@
 <template>
-<modal title="New tweet" :is-open="isNewTweetModalOpen">
-  <div slot="modal-body">
+<el-dialog title="New tweet" v-model="isNewTweetModalOpen">
+  <div>
     <textarea
+      v-shortkey="['ctrl', 'enter']"
+      @shortkey="submitTweet"
       class="form-control tweet-draft"
       @input="updateTweetDraft"
       rows="3">
     </textarea>
   </div>
-  <div slot="modal-footer">
+  <div slot="footer">
     <button
-      class="btn btn-secondary"
+      class="btn btn-info"
       @click="toggleNewTweetModal">
       Cancel
     </button>

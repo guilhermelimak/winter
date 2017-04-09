@@ -249,6 +249,10 @@ async-foreach@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/async-foreach/-/async-foreach-0.1.3.tgz#36121f845c0578172de419a97dbeb1d16ec34542"
 
+async-validator@^1.6.6:
+  version "1.6.8"
+  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.6.8.tgz#fbaaa9002b41066fdf3ba21d8a4ca8b1179ad36b"
+
 async@1.x, async@^1.4.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
@@ -454,6 +458,10 @@ babel-helper-replace-supers@^6.24.1:
     babel-template "^6.24.1"
     babel-traverse "^6.24.1"
     babel-types "^6.24.1"
+
+babel-helper-vue-jsx-merge-props@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-2.0.2.tgz#aceb1c373588279e2755ea1cfd35c22394fd33f8"
 
 babel-helpers@^6.24.1:
   version "6.24.1"
@@ -1889,6 +1897,10 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
 
+deepmerge@^1.2.0:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.3.2.tgz#1663691629d4dbfe364fa12a2a4f0aa86aa3a050"
+
 defined@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
@@ -2207,8 +2219,8 @@ electron-rebuild@^1.1.3:
     yargs "^3.31.0"
 
 electron-to-chromium@^1.2.7:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.2.tgz#b8ce5c93b308db0e92f6d0435c46ddec8f6363ab"
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.3.tgz#651eb63fe89f39db70ffc8dbd5d9b66958bc6a0e"
 
 electron@^1.3.1:
   version "1.6.6"
@@ -2216,6 +2228,15 @@ electron@^1.3.1:
   dependencies:
     electron-download "^3.0.1"
     extract-zip "^1.0.3"
+
+element-ui@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-1.2.8.tgz#aa95bde8ad550d17b23b2a73ae84cfa1f0c2635d"
+  dependencies:
+    async-validator "^1.6.6"
+    babel-helper-vue-jsx-merge-props "^2.0.0"
+    deepmerge "^1.2.0"
+    throttle-debounce "^1.0.1"
 
 elliptic@^6.0.0:
   version "6.4.0"
@@ -6018,6 +6039,10 @@ thenify-all@^1.0.0, thenify-all@^1.6.0:
   dependencies:
     any-promise "^1.0.0"
 
+throttle-debounce@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-1.0.1.tgz#dad0fe130f9daf3719fdea33dc36a8e6ba7f30b5"
+
 throttleit@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/throttleit/-/throttleit-0.0.2.tgz#cfedf88e60c00dd9697b61fdd2a8343a9b680eaf"
@@ -6373,6 +6398,12 @@ vue-loader@^10.0.2:
     vue-style-loader "^2.0.0"
     vue-template-es2015-compiler "^1.2.2"
 
+vue-shortkey@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vue-shortkey/-/vue-shortkey-2.1.0.tgz#836f37c47e9a4404fed15c139397fc058b98bb85"
+  dependencies:
+    vue "^2.1.0"
+
 vue-style-loader@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-1.0.0.tgz#abeb7bd0f46313083741244d3079d4f14449e049"
@@ -6396,6 +6427,10 @@ vue-template-compiler@^2.1.10:
 vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
+
+vue@^2.1.0:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
 
 watchpack@^1.3.1:
   version "1.3.1"

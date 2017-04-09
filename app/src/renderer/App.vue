@@ -1,14 +1,20 @@
 <template>
-<div id="app">
+<div id="app" v-shortkey="['ctrl', 'n']" @shortkey="toggleNewTweetModal">
   <router-view></router-view>
 </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import store from '~/vuex/store'
 
 export default {
   store,
+  methods: {
+    ...mapActions([
+      'toggleNewTweetModal',
+    ]),
+  },
 }
 </script>
 
