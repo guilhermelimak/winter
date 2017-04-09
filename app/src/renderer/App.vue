@@ -31,8 +31,9 @@ body {
   font-family: Lato, Helvetica, sans-serif;
 }
 
-
 #app {
-  padding-top: $navbar-height;
+  @media(min-width: $screen-md-min) {
+    padding-top: $navbar-height;
+  }
 }
 </style>
