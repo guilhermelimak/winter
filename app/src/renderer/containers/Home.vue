@@ -22,10 +22,12 @@ export default {
   methods: {
     ...mapActions([
       'listenStream',
+      'getReplies',
     ]),
   },
   created() {
     this.listenStream()
+    this.getReplies()
   },
   components: {
     Navbar,

@@ -6,6 +6,7 @@ export default {
   state: {
     home: [],
     mentions: [],
+    client: {},
     // ...Custom lists should also be here
   },
   actions: {
@@ -14,23 +15,39 @@ export default {
       client.stream('user',
         (stream) => {
           stream.on('data', event => {
-            console.log(event)
             commit(types.UPDATE_TWEETS_LIST, { listName: 'home', tweets: [event] })
           })
 
           stream.on('error', error => console.error(error))
         }
       )
+
+      commit(types.UPDATE_TWITTER_CLIENT, { client })
     },
-    // postTweet({}) {}
+    postTweet({ rootState, state }) {
+      const status = rootState.ui.newTweetModal.tweetDraft
+
+      state.client.post('statuses/update', { status }, (err, tweet) => {
+        if (err) console.error(err)
+        console.log(tweet)  // Tweet body.
+      })
+    },
     updateTweetsList({ commit }, payload) {
       commit(types.UPDATE_TWEETS_LIST, payload)
+    },
+    getReplies({ dispatch, state }) {
+      state.client.get('statuses/mentions_timeline', (err, tweets) => {
+        dispatch('updateTweetsList', { listName: 'mentions', tweets })
+      })
     },
   },
   getters: {
     tweets: state => state,
   },
   mutations: {
+    [types.UPDATE_TWITTER_CLIENT](state, { client }) {
+      state.client = client
+    },
     [types.UPDATE_TWEETS_LIST](state, { listName, tweets }) {
       state[listName] = [...tweets, ...state[listName]]
     },
