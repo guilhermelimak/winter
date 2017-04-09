@@ -3,7 +3,7 @@ import * as types from '~/vuex/mutation-types'
 export default {
   state: {
     newTweetModal: {
-      isOpen: true,
+      isOpen: false,
       tweetDraft: '',
     },
   },

@@ -1,0 +1,10 @@
+.el-dialog {
+  &__header,
+  &__body {
+    padding: $grid-gutter-width / 3 $grid-gutter-width / 3 0;
+  }
+
+  &__footer {
+    padding: $grid-gutter-width / 3;
+  }
+}

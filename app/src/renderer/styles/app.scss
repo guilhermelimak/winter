@@ -3,5 +3,6 @@ $icon-font-path: "../../../node_modules/bootstrap-sass/assets/fonts/bootstrap/";
 @import './variables';
 @import './shadows';
 @import './transitions';
+@import './overrides/el-dialog';
 
 @import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap.scss';

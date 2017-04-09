@@ -21,7 +21,7 @@
       Tweet
     </button>
   </div>
-</modal>
+</el-dialog>
 </template>
 
 <script>
@@ -35,8 +35,6 @@ export default {
     ]),
   },
   methods: {
-    submit() {
-    },
     updateTweetDraft(e) {
       this.$store.dispatch('updateTweetDraft', { content: e.target.value })
     },
