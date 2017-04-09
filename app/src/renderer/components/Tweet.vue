@@ -63,7 +63,8 @@ export default {
 
 .tweet {
   margin: $grid-gutter-width / 3 0;
-  border: 1px solid black;
+  border: 1px solid #AAA;
+  border-radius: 1px;
   padding: $grid-gutter-width / 3;
 
   &__container {

@@ -5,6 +5,13 @@ $gray: lighten($gray-base, 33.5%) !default;
 $gray-light: lighten($gray-base, 46.7%) !default;
 $gray-lighter: lighten($gray-base, 93.5%) !default;
 
+$text-color: $gray-lighter;
+$body-bg: $gray-darker;
+$btn-default-color: $gray-dark;
+$btn-info-color: $gray-dark;
+$btn-secondary-color: $gray-dark;
+$grid-gutter-width: 20px;
+
 $brand-primary: #3A5A75 !default;
 $brand-success: #BBC682 !default;
 $brand-info: #CCD2B6 !default;

@@ -23,11 +23,13 @@ export default {
     ...mapActions([
       'listenStream',
       'getReplies',
+      'getHomeTimeline',
     ]),
   },
   created() {
     this.listenStream()
     this.getReplies()
+    this.getHomeTimeline()
   },
   components: {
     Navbar,
