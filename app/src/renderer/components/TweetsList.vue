@@ -1,6 +1,13 @@
 <template>
-<div class="col-xs-12 col-md-4">
-  <tweet v-for="(tweet, i) in tweets" :tweet="tweet" />
+<div class="col-xs-12 col-sm-4 col-md-4">
+  <div class="row">
+    <div class="col-xs-12">
+        <h2>{{ listName }}</h2>
+    </div>
+    <div class="col-xs-12">
+      <tweet v-for="(tweet, i) in tweets" :tweet="tweet" />
+    </div>
+  </div>
 </div>
 </template>
 
@@ -12,6 +19,10 @@ export default {
     tweets: {
       required: true,
       type: Array,
+    },
+    listName: {
+      required: true,
+      type: String,
     },
   },
   components: {
