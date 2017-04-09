@@ -38,12 +38,18 @@ export default {
             return
           }
 
+          localStorage.setItem('accessToken', accessToken)
+          localStorage.setItem('accessTokenSecret', accessTokenSecret)
+
           commit(types.SAVE_ACCESS_TOKENS, { accessToken, accessTokenSecret })
           resolve()
         }
 
         twitter.getAccessToken(requestToken, requestTokenSecret, pin, callback)
       })
+    },
+    updateAccessToken({ commit }, tokens) {
+      commit(types.SAVE_ACCESS_TOKENS, tokens)
     },
   },
   mutations: {

@@ -31,6 +31,15 @@ export default {
       pin: '',
     }
   },
+  created() {
+    const accessToken = localStorage.getItem('accessToken')
+    const accessTokenSecret = localStorage.getItem('accessTokenSecret')
+
+    if (accessToken && accessTokenSecret) {
+      this.updateAccessToken({ accessToken, accessTokenSecret })
+      this.$router.push('home')
+    }
+  },
   computed: {
     ...mapGetters([
       'tokens',
@@ -40,6 +49,7 @@ export default {
     ...mapActions([
       'getRequestToken',
       'getAccessToken',
+      'updateAccessToken',
     ]),
     login() {
       this.getRequestToken()

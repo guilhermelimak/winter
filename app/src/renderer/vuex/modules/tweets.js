@@ -12,17 +12,26 @@ export default {
   actions: {
     listenStream({ commit, rootState }) {
       const client = initTwitter(rootState.auth.tokens)
-      client.stream('user',
-        (stream) => {
-          stream.on('data', event => {
-            commit(types.UPDATE_TWEETS_LIST, { listName: 'home', tweets: [event] })
-          })
 
-          stream.on('error', error => console.error(error))
-        }
-      )
+      return new Promise((resolve, reject) => {
+        client.stream('user',
+          (stream) => {
+            stream.on('data', event => {
+              commit(types.UPDATE_TWEETS_LIST, { listName: 'home', tweets: [event] })
+            })
 
-      commit(types.UPDATE_TWITTER_CLIENT, { client })
+            stream.on('error', error => {
+              localStorage.removeItem('accessToken')
+              localStorage.removeItem('accessTokenSecret')
+
+              reject(error)
+              console.error(error)
+            })
+          }
+        )
+
+        commit(types.UPDATE_TWITTER_CLIENT, { client })
+      })
     },
     postTweet({ rootState, state }) {
       const status = rootState.ui.newTweetModal.tweetDraft
@@ -38,6 +47,11 @@ export default {
     getReplies({ dispatch, state }) {
       state.client.get('statuses/mentions_timeline', (err, tweets) => {
         dispatch('updateTweetsList', { listName: 'mentions', tweets })
+      })
+    },
+    getHomeTimeline({ dispatch, state }) {
+      state.client.get('statuses/home_timeline', (err, tweets) => {
+        dispatch('updateTweetsList', { listName: 'home', tweets })
       })
     },
   },
