@@ -41,7 +41,7 @@ export default {
     ...mapActions([
       'toggleNewTweetModal',
       'submitTweet',
-      'postTweet',
+      'postStatus',
     ]),
   },
   components: {

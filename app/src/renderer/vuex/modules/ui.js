@@ -12,7 +12,7 @@ export default {
       commit(types.UPDATE_TWEET_DRAFT, { content })
     },
     submitTweet({ dispatch, state, commit }) {
-      dispatch('postTweet', state.newTweetModal.tweetDraft)
+      dispatch('postStatus', state.newTweetModal.tweetDraft)
       commit(types.TOGGLE_NEW_TWEET_MODAL)
     },
     toggleNewTweetModal({ commit }) {
