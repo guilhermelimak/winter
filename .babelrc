@@ -1,10 +1,7 @@
 {
   "comments": false,
+  "presets": ["es2015", "stage-0"],
   "env": {
-    "testing-unit": {
-      "presets": ["es2015", "stage-0"],
-      "plugins": ["istanbul"]
-    },
     "main": {
       "presets": ["es2015", "stage-0"]
     },

@@ -6,13 +6,15 @@ module.exports = {
   },
   env: {
     browser: true,
-    node: true
+    node: true,
+    "jest/globals": true
   },
   extends: 'airbnb-base',
   plugins: [
-    'html'
+    'html',
+    "jest"
   ],
-  'rules': {
+  rules: {
     'global-require': 0,
     'import/no-unresolved': 0,
     'no-underscore-dangle': 0,
@@ -24,6 +26,9 @@ module.exports = {
     'no-param-reassign': 0,
     'semi': [ 1, 'never' ],
     'no-shadow': 0,
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-console': 0
