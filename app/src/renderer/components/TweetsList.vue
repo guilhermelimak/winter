@@ -8,6 +8,7 @@
       <tweet
         :list-name="listName"
         v-for="(tweet, i) in tweets"
+        :key="tweet.id_str"
         :tweet="tweet" />
     </div>
   </div>
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import Tweet from '~/components/Tweet'
+import Tweet from '@/components/Tweet'
 
 export default {
   props: {

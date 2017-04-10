@@ -1,6 +1,6 @@
-import initTwitter from '~/services/twitter'
+import initTwitter from '@/services/twitter'
 import R from 'ramda'
-import * as types from '~/vuex/mutation-types'
+import * as types from '@/vuex/mutation-types'
 
 const logError = (resolve, reject) => (err, tweet) => {
   if (err) {

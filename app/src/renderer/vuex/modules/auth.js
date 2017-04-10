@@ -1,6 +1,6 @@
-import creds from '~/twitter-credentials'
-import * as types from '~/vuex/mutation-types'
-import util from '~/util'
+import creds from '@/twitter-credentials'
+import * as types from '@/vuex/mutation-types'
+import util from '@/util'
 
 const TwitterApi = require('node-twitter-api')
 

@@ -1,4 +1,4 @@
-import * as types from '~/vuex/mutation-types'
+import * as types from '@/vuex/mutation-types'
 
 export default {
   state: {

@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import TweetsList from '~/components/TweetsList'
-import NewTweetModal from '~/components/NewTweetModal'
-import Navbar from '~/components/Navbar'
+import TweetsList from '@/components/TweetsList'
+import NewTweetModal from '@/components/NewTweetModal'
+import Navbar from '@/components/Navbar'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {

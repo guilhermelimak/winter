@@ -4,7 +4,7 @@
 
 
 ## Dev guidelines
-- All imports using '~' are relative to the app/src/renderer folder. Use it everywhere to avoid relative imports.
+- All imports using '@' are relative to the app/src/renderer folder. Use it everywhere to avoid relative imports.
 
 - All the styles inside components should be scoped (If a style needs to be used in more than one component it should be in the ~/styles folder).
 

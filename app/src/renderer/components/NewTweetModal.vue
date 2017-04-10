@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Modal from '~/components/Modal'
+import Modal from '@/components/Modal'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

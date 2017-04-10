@@ -1,5 +1,5 @@
 import Twitter from 'twitter'
-import creds from '~/twitter-credentials'
+import creds from '@/twitter-credentials'
 
 export default ({ accessToken, accessTokenSecret }) => new Twitter({
   consumer_key: creds.CONSUMER_KEY,
