@@ -35,7 +35,7 @@ webpackConfig.module.rules
 
 module.exports = config => {
   config.set({
-    browsers: ['visibleElectron'],
+    browsers: ['Electron'],
     client: {
       useIframe: false
     },
@@ -58,7 +58,7 @@ module.exports = config => {
       './index.js': ['webpack', 'sourcemap']
     },
     reporters: ['spec', 'coverage'],
-    singleRun: true,
+    singleRun: false,
     webpack: webpackConfig,
     webpackMiddleware: {
       noInfo: true

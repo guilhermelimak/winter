@@ -18,6 +18,10 @@ const rendererConfig = {
   module: {
     rules: [
       {
+        test: /\.scss$/,
+        use: 'sass-loader',
+      },
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',

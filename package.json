@@ -11,7 +11,8 @@
     "pack": "npm run pack:main && npm run pack:renderer",
     "pack:main": "cross-env NODE_ENV=production webpack -p --progress --colors --config webpack.main.config.js",
     "pack:renderer": "cross-env NODE_ENV=production webpack -p --progress --colors --config webpack.renderer.config.js",
-    "test": "npm run unit",
+    "test": "npm run unit -- --single-run",
+    "test:watch": "npm run unit",
     "unit": "cross-env BABEL_ENV=testing-unit karma start test/unit/karma.conf.js",
     "postinstall": "npm run lint:fix && cd app && npm install"
   },
@@ -109,6 +110,7 @@
   },
   "dependencies": {
     "ajv": "^5.0.1-beta.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "bootstrap-sass": "^3.3.7",
     "camelize": "^1.0.0",
     "element-ui": "^1.2.8",
@@ -116,6 +118,7 @@
     "linkifyjs": "^2.1.4",
     "node-twitter-api": "^1.8.0",
     "ramda": "^0.23.0",
+    "sinon": "^2.1.0",
     "twitter": "^1.7.0",
     "vue-shortkey": "^2.1.0"
   }
